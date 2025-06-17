@@ -1,0 +1,5 @@
+{"func": "void vulnerable1() { char buf[10]; gets(buf); }", "target": 1}
+{"func": "void vulnerable2() { char buf[8]; strcpy(buf, \"malicious_input\"); }", "target": 1}
+{"func": "void safe1() { char buf[10]; strncpy(buf, \"ok\", 10); }", "target": 0}
+{"func": "void safe2() { int x = 0; x++; printf(\"%d\", x); }", "target": 0}
+{"func": "void vulnerable3() { char query[1024]; scanf(\"%s\", query); system(query); }", "target": 1}

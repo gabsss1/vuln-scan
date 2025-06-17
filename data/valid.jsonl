@@ -1,0 +1,3 @@
+{"func": "void safe3() { char msg[20]; snprintf(msg, 20, \"hello\"); }", "target": 0}
+{"func": "void vulnerable4() { char input[50]; gets(input); }", "target": 1}
+{"func": "void safe4() { int y = 5; y *= 2; }", "target": 0}

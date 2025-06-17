@@ -1,3 +1,5 @@
-transformers
-torch
+transformers==4.40.1
 datasets
+torch
+scikit-learn
+accelerate

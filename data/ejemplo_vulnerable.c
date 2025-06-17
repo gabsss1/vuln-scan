@@ -1,4 +1,8 @@
+#include <stdio.h>
+#include <string.h>
+
 void vulnerable() {
-    char buffer[8];
-    gets(buffer); // Buffer Overflow
+    char buffer[10];
+    gets(buffer); // ⚠️ Esta función es insegura (buffer overflow)
+    printf("Input: %s\n", buffer);
 }
