@@ -1,58 +1,34 @@
-from models.graphcodebert import GraphCodeBERTVulnDetector
-import sys
-import re
 from fastapi import FastAPI, File, UploadFile
 from pydantic import BaseModel
-
-#Se levanta el modelo
-detector = GraphCodeBERTVulnDetector("checkpoints")
+from predictor import VulnerabilityPredictor
 
 app = FastAPI(
     title="Vulnerability Scanner API",
-    description="Detecta vulnerabilidades en código fuente C usando GraphCodeBERT.",
+    description="Detecta vulnerabilidades en funciones de código (C/JS) usando GraphCodeBERT.",
     version="1.0.0"
 )
+
+predictor = VulnerabilityPredictor()
 
 class CodeInput(BaseModel):
     code: str
 
-def marcar_lineas_vulnerables(code: str):
-    patrones = ["gets(", "strcpy(", "scanf(", "eval(", "exec(", "mysql_query"]
-    lineas = code.splitlines()
-    lineas_vulnerables = []
-    for i, linea in enumerate(lineas, 1):
-        if any(pat in linea for pat in patrones):
-            lineas_vulnerables.append({"line": i, "content": linea.strip()})
-    return lineas_vulnerables
-
 @app.post("/scan")
 def scan_code(input_data: CodeInput):
     code = input_data.code
-    resultado, prob = detector.predict(code)
-    response = {
-        "classification": resultado,
-        "confidence": prob,
-    }
-    if resultado == "Vulnerable":
-        response["Posibles lineas vulnerables"] = marcar_lineas_vulnerables(code)
-    return response
+    results = predictor.analyze_code(code)
+    return {"resultados": results}
 
-@app.post("/escanear archivo")
-async def scan_file(file: UploadFile =File(...)):
-    #recibir archivo
-    if not file.filename.endswith(".c"):
-        return{"error":"solo archivos .c"}
-    
+@app.post("/escanear-archivo")
+async def scan_file(file: UploadFile = File(...)):
+    if not file.filename.endswith(".c") and not file.filename.endswith(".js"):
+        return {"error": "Solo se permiten archivos .c o .js"}
+
     contents = await file.read()
     code = contents.decode("utf-8")
-    
-    resultado, prob = detector.predict(code)
-    
-    response = {
-        "Nombre del archivo": file.filename,
-        "Resultado": resultado,
-        "Confiabilidad": prob,
+    results = predictor.analyze_code(code)
+
+    return {
+        "archivo": file.filename,
+        "funciones_analizadas": results
     }
-    if resultado == "Vulnerable":
-        response["Lineas_Vulneables"] = marcar_lineas_vulnerables(code)
-    return response

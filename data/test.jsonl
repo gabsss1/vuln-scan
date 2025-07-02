@@ -1,2 +1,4 @@
-{"func": "void vulnerable5() { char name[10]; strcpy(name, getenv(\"USER\")); }", "target": 1}
-{"func": "void safe5() { char name[10]; strncpy(name, getenv(\"USER\"), 9); name[9] = '\\0'; }", "target": 0}
+{"func": "function test1() {\n  const f = new Function(userInput);\n  f();\n}", "target": 1}
+{"func": "function test2() {\n  let safe = 123;\n  console.log(safe);\n}", "target": 0}
+{"func": "function test3() {\n  document.write('<script>' + userInput + '</script>');\n}", "target": 1}
+{"func": "function test4() {\n  const safeHTML = DOMPurify.sanitize(userInput);\n  container.innerHTML = safeHTML;\n}", "target": 0}

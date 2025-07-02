@@ -25,7 +25,7 @@ model = RobertaForSequenceClassification.from_pretrained(model_name, num_labels=
 # Entrenamiento
 training_args = TrainingArguments(
     output_dir="./checkpoints",
-    num_train_epochs=10,
+    num_train_epochs=15,
     per_device_train_batch_size=2,
     per_device_eval_batch_size=2,
     evaluation_strategy="epoch",

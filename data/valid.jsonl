@@ -1,3 +1,4 @@
-{"func": "void safe3() { char msg[20]; snprintf(msg, 20, \"hello\"); }", "target": 0}
-{"func": "void vulnerable4() { char input[50]; gets(input); }", "target": 1}
-{"func": "void safe4() { int y = 5; y *= 2; }", "target": 0}
+{"func": "function vulnerable_val1() {\n  document.body.innerHTML = '<script>' + userInput + '</script>';\n}", "target": 1}
+{"func": "function vulnerable_val2() {\n  eval(userInput);\n}", "target": 1}
+{"func": "function safe_val1() {\n  const clean = DOMPurify.sanitize(userInput);\n  document.getElementById('out').innerHTML = clean;\n}", "target": 0}
+{"func": "function safe_val2() {\n  const safe = document.createTextNode(userInput);\n  document.body.appendChild(safe);\n}", "target": 0}

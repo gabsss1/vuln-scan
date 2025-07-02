@@ -3,18 +3,14 @@ from models.graphcodebert import GraphCodeBERTVulnDetector
 
 class VulnerabilityPredictor:
     def __init__(self):
-        self.detector = GraphCodeBERTVulnDetector("checkpoints/")  # o usa base preentrenado
+        self.detector = GraphCodeBERTVulnDetector("checkpoints/")
 
     def extract_functions(self, code: str):
-        # Regex básico para detectar funciones estilo C
-        pattern = r"(?:void|int|char|float|double)\s+(\w+)\s*\([^)]*\)\s*\{[^}]*\}"
+        # Regex para funciones C o JS
+        pattern = r"(function\s+\w+\s*\([^)]*\)\s*\{(?:[^{}]|\{[^{}]*\})*\}|(?:void|int|char|float|double)\s+\w+\s*\([^)]*\)\s*\{(?:[^{}]|\{[^{}]*\})*\})"
         return list(re.finditer(pattern, code, re.DOTALL))
 
-    def analyze_file(self, filepath: str):
-        with open(filepath, 'r') as f:
-            lines = f.readlines()
-            code = ''.join(lines)
-
+    def analyze_code(self, code: str):
         results = []
         functions = self.extract_functions(code)
 
@@ -28,8 +24,8 @@ class VulnerabilityPredictor:
             vuln_lines = []
             if label == "Vulnerable":
                 for i, line in enumerate(func_code.split('\n')):
-                    if any(p in line for p in ['gets(', 'strcpy(', 'scanf(', 'eval(', 'exec(', 'mysql_query']):
-                        vuln_lines.append((start_line + i, line.strip()))
+                    if any(p in line for p in ['gets(', 'strcpy(', 'scanf(', 'eval(', 'document.write', 'innerHTML']):
+                        vuln_lines.append({"line": start_line + i, "content": line.strip()})
 
             results.append({
                 "func_name": func_name,
