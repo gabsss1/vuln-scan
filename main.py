@@ -13,14 +13,12 @@ predictor = VulnerabilityPredictor()
 class CodeInput(BaseModel):
     code: str
 
-# ✅ Endpoint 1: Compatible con Swagger UI (envío como text/plain)
 @app.post("/scan-raw")
 def scan_raw_swagger(code: str = Body(..., media_type="text/plain")):
     code = code.replace('\r\n', '\n').replace('\r', '\n')
     results = predictor.analyze_code(code)
     return {"resultados": results}
 
-# ✅ Endpoint para enviar archivos (sigue igual)
 @app.post("/escanear-archivo")
 async def scan_file(file: UploadFile = File(...)):
     if not file.filename.endswith(".c") and not file.filename.endswith(".js"):

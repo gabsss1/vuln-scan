@@ -1,33 +1,200 @@
-{"func": "function vuln_eval_write() {\n  eval(userInput);\n  document.write(userInput);\n}", "target": 1}
-{"func": "function vuln_redirect_fetch() {\n  location.href = userInput;\n  fetch(userInput);\n}", "target": 1}
-{"func": "function vuln_storage_innerHTML() {\n  localStorage.setItem('data', userInput);\n  document.querySelector('#target').innerHTML = userInput;\n}", "target": 1}
-{"func": "function vuln_combined1() {\n  const html = '<div>' + userInput + '</div>';\n  document.body.innerHTML = html;\n  eval(userInput);\n}", "target": 1}
-{"func": "function vuln_function_setTimeout() {\n  const f = new Function(userInput);\n  f();\n  setTimeout(userInput, 1000);\n}", "target": 1}
-{"func": "function vuln_outerHTML_windowOpen() {\n  document.body.outerHTML = userInput;\n  window.open(userInput);\n}", "target": 1}
-{"func": "function vuln_script_innerHTML() {\n  const script = '<script>' + userInput + '</script>';\n  document.body.innerHTML = script;\n}", "target": 1}
-{"func": "function vuln_iframe_comment() {\n  const iframe = document.createElement('iframe');\n  iframe.src = userInput;\n  const comment = document.createComment(userInput);\n  document.body.appendChild(iframe);\n  document.body.appendChild(comment);\n}", "target": 1}
-{"func": "function vuln_loop_concatenate() {\n  let result = '';\n  for (let i = 0; i < 5; i++) {\n    result += userInput;\n  }\n  document.body.innerHTML = result;\n}", "target": 1}
-{"func": "function vuln_complex_combined() {\n  eval(userInput);\n  document.body.innerHTML = userInput;\n  setTimeout(userInput, 500);\n  window.open(userInput);\n}", "target": 1}
-
-{"func": "function safe_encode_redirect() {\n  const safe = encodeURIComponent(userInput);\n  window.location.href = 'https://safe.com?q=' + safe;\n}", "target": 0}
-{"func": "function safe_DOMPurify_log() {\n  const clean = DOMPurify.sanitize(userInput);\n  document.body.innerHTML = clean;\n  console.log('Sanitized safely');\n}", "target": 0}
-{"func": "function safe_createElement_text() {\n  const div = document.createElement('div');\n  div.textContent = userInput;\n  document.body.appendChild(div);\n}", "target": 0}
-{"func": "function safe_XMLHttpRequest_static() {\n  const xhr = new XMLHttpRequest();\n  xhr.open('GET', '/api');\n  xhr.send();\n}", "target": 0}
-{"func": "function safe_loop_encode() {\n  let result = '';\n  for (let i = 0; i < 5; i++) {\n    result += encodeURIComponent(userInput);\n  }\n  console.log(result);\n}", "target": 0}
-{"func": "function safe_setTimeout_safeCallback() {\n  setTimeout(() => console.log('Safe Callback'), 1000);\n}", "target": 0}
-{"func": "function safe_combined_operations() {\n  const clean = DOMPurify.sanitize(userInput);\n  const encoded = encodeURIComponent(userInput);\n  document.body.innerHTML = clean;\n  console.log(encoded);\n}", "target": 0}
-{"func": "function safe_sanitized_localStorage() {\n  const sanitized = DOMPurify.sanitize(userInput);\n  localStorage.setItem('data', sanitized);\n}", "target": 0}
-{"func": "function safe_comment_textNode() {\n  const comment = document.createComment('Safe comment');\n  const text = document.createTextNode(userInput);\n  document.body.appendChild(comment);\n  document.body.appendChild(text);\n}", "target": 0}
-{"func": "function safe_iframe_static() {\n  const iframe = document.createElement('iframe');\n  iframe.src = 'about:blank';\n  document.body.appendChild(iframe);\n}", "target": 0}
-
-{"func": "function vuln_eval_function_combo() {\n  eval(userInput);\n  const f = new Function(userInput);\n  f();\n}", "target": 1}
-{"func": "function vuln_window_open_redirect() {\n  window.open(userInput);\n  location.href = userInput;\n}", "target": 1}
-{"func": "function vuln_innerHTML_fetch_combined() {\n  document.body.innerHTML = userInput;\n  fetch(userInput);\n  setTimeout(userInput, 1000);\n}", "target": 1}
-{"func": "function vuln_double_comment_injection() {\n  const comment1 = document.createComment(userInput);\n  const comment2 = document.createComment(userInput);\n  document.body.appendChild(comment1);\n  document.body.appendChild(comment2);\n}", "target": 1}
-{"func": "function vuln_loop_windowOpen() {\n  for (let i = 0; i < 3; i++) {\n    window.open(userInput);\n  }\n}", "target": 1}
-
-{"func": "function safe_DOMPurify_nested() {\n  const clean = DOMPurify.sanitize(userInput);\n  const div = document.createElement('div');\n  div.innerHTML = clean;\n  document.body.appendChild(div);\n}", "target": 0}
-{"func": "function safe_loop_DOMPurify_encode() {\n  for (let i = 0; i < 3; i++) {\n    const sanitized = DOMPurify.sanitize(userInput);\n    const encoded = encodeURIComponent(userInput);\n    console.log(sanitized, encoded);\n  }\n}", "target": 0}
-{"func": "function safe_XMLHttpRequest_combined() {\n  const xhr = new XMLHttpRequest();\n  xhr.open('POST', '/submit');\n  xhr.setRequestHeader('Content-Type', 'application/json');\n  xhr.send(JSON.stringify({data: userInput}));\n}", "target": 0}
-{"func": "function safe_iframe_sanitized_append() {\n  const iframe = document.createElement('iframe');\n  iframe.src = 'about:blank';\n  document.body.appendChild(iframe);\n  const safeComment = document.createComment('safe');\n  document.body.appendChild(safeComment);\n}", "target": 0}
-{"func": "function safe_textNode_loop_safe() {\n  for (let i = 0; i < 2; i++) {\n    const text = document.createTextNode(userInput);\n    document.body.appendChild(text);\n  }\n}", "target": 0}
+{"func": "function vuln_eval_write() {\n  eval(userInput0);\n  document.write(userInput0);\n}", "target": 1}
+{"func": "function vuln_redirect_fetch() {\n  location.href = userInput0;\n  fetch(userInput0);\n}", "target": 1}
+{"func": "function vuln_storage_innerHTML() {\n  localStorage.setItem('data', userInput0);\n  document.querySelector('#target').innerHTML = userInput0;\n}", "target": 1}
+{"func": "function safe_encode_redirect() {\n  const safe = encodeURIComponent(userInput0);\n  window.location.href = 'https://safe.com?q=' + safe;\n}", "target": 0}
+{"func": "function safe_DOMPurify_log() {\n  const clean = DOMPurify.sanitize(userInput0);\n  document.body.innerHTML = clean;\n  console.log('Sanitized safely');\n}", "target": 0}
+{"func": "function vuln_eval_write() {\n  eval(userInput1);\n  document.write(userInput1);\n}", "target": 1}
+{"func": "function vuln_redirect_fetch() {\n  location.href = userInput1;\n  fetch(userInput1);\n}", "target": 1}
+{"func": "function vuln_storage_innerHTML() {\n  localStorage.setItem('data', userInput1);\n  document.querySelector('#target').innerHTML = userInput1;\n}", "target": 1}
+{"func": "function safe_encode_redirect() {\n  const safe = encodeURIComponent(userInput1);\n  window.location.href = 'https://safe.com?q=' + safe;\n}", "target": 0}
+{"func": "function safe_DOMPurify_log() {\n  const clean = DOMPurify.sanitize(userInput1);\n  document.body.innerHTML = clean;\n  console.log('Sanitized safely');\n}", "target": 0}
+{"func": "function vuln_eval_write() {\n  eval(userInput2);\n  document.write(userInput2);\n}", "target": 1}
+{"func": "function vuln_redirect_fetch() {\n  location.href = userInput2;\n  fetch(userInput2);\n}", "target": 1}
+{"func": "function vuln_storage_innerHTML() {\n  localStorage.setItem('data', userInput2);\n  document.querySelector('#target').innerHTML = userInput2;\n}", "target": 1}
+{"func": "function safe_encode_redirect() {\n  const safe = encodeURIComponent(userInput2);\n  window.location.href = 'https://safe.com?q=' + safe;\n}", "target": 0}
+{"func": "function safe_DOMPurify_log() {\n  const clean = DOMPurify.sanitize(userInput2);\n  document.body.innerHTML = clean;\n  console.log('Sanitized safely');\n}", "target": 0}
+{"func": "function vuln_eval_write() {\n  eval(userInput3);\n  document.write(userInput3);\n}", "target": 1}
+{"func": "function vuln_redirect_fetch() {\n  location.href = userInput3;\n  fetch(userInput3);\n}", "target": 1}
+{"func": "function vuln_storage_innerHTML() {\n  localStorage.setItem('data', userInput3);\n  document.querySelector('#target').innerHTML = userInput3;\n}", "target": 1}
+{"func": "function safe_encode_redirect() {\n  const safe = encodeURIComponent(userInput3);\n  window.location.href = 'https://safe.com?q=' + safe;\n}", "target": 0}
+{"func": "function safe_DOMPurify_log() {\n  const clean = DOMPurify.sanitize(userInput3);\n  document.body.innerHTML = clean;\n  console.log('Sanitized safely');\n}", "target": 0}
+{"func": "function vuln_eval_write() {\n  eval(userInput4);\n  document.write(userInput4);\n}", "target": 1}
+{"func": "function vuln_redirect_fetch() {\n  location.href = userInput4;\n  fetch(userInput4);\n}", "target": 1}
+{"func": "function vuln_storage_innerHTML() {\n  localStorage.setItem('data', userInput4);\n  document.querySelector('#target').innerHTML = userInput4;\n}", "target": 1}
+{"func": "function safe_encode_redirect() {\n  const safe = encodeURIComponent(userInput4);\n  window.location.href = 'https://safe.com?q=' + safe;\n}", "target": 0}
+{"func": "function safe_DOMPurify_log() {\n  const clean = DOMPurify.sanitize(userInput4);\n  document.body.innerHTML = clean;\n  console.log('Sanitized safely');\n}", "target": 0}
+{"func": "function vuln_eval_write() {\n  eval(userInput5);\n  document.write(userInput5);\n}", "target": 1}
+{"func": "function vuln_redirect_fetch() {\n  location.href = userInput5;\n  fetch(userInput5);\n}", "target": 1}
+{"func": "function vuln_storage_innerHTML() {\n  localStorage.setItem('data', userInput5);\n  document.querySelector('#target').innerHTML = userInput5;\n}", "target": 1}
+{"func": "function safe_encode_redirect() {\n  const safe = encodeURIComponent(userInput5);\n  window.location.href = 'https://safe.com?q=' + safe;\n}", "target": 0}
+{"func": "function safe_DOMPurify_log() {\n  const clean = DOMPurify.sanitize(userInput5);\n  document.body.innerHTML = clean;\n  console.log('Sanitized safely');\n}", "target": 0}
+{"func": "function vuln_eval_write() {\n  eval(userInput6);\n  document.write(userInput6);\n}", "target": 1}
+{"func": "function vuln_redirect_fetch() {\n  location.href = userInput6;\n  fetch(userInput6);\n}", "target": 1}
+{"func": "function vuln_storage_innerHTML() {\n  localStorage.setItem('data', userInput6);\n  document.querySelector('#target').innerHTML = userInput6;\n}", "target": 1}
+{"func": "function safe_encode_redirect() {\n  const safe = encodeURIComponent(userInput6);\n  window.location.href = 'https://safe.com?q=' + safe;\n}", "target": 0}
+{"func": "function safe_DOMPurify_log() {\n  const clean = DOMPurify.sanitize(userInput6);\n  document.body.innerHTML = clean;\n  console.log('Sanitized safely');\n}", "target": 0}
+{"func": "function vuln_eval_write() {\n  eval(userInput7);\n  document.write(userInput7);\n}", "target": 1}
+{"func": "function vuln_redirect_fetch() {\n  location.href = userInput7;\n  fetch(userInput7);\n}", "target": 1}
+{"func": "function vuln_storage_innerHTML() {\n  localStorage.setItem('data', userInput7);\n  document.querySelector('#target').innerHTML = userInput7;\n}", "target": 1}
+{"func": "function safe_encode_redirect() {\n  const safe = encodeURIComponent(userInput7);\n  window.location.href = 'https://safe.com?q=' + safe;\n}", "target": 0}
+{"func": "function safe_DOMPurify_log() {\n  const clean = DOMPurify.sanitize(userInput7);\n  document.body.innerHTML = clean;\n  console.log('Sanitized safely');\n}", "target": 0}
+{"func": "function vuln_eval_write() {\n  eval(userInput8);\n  document.write(userInput8);\n}", "target": 1}
+{"func": "function vuln_redirect_fetch() {\n  location.href = userInput8;\n  fetch(userInput8);\n}", "target": 1}
+{"func": "function vuln_storage_innerHTML() {\n  localStorage.setItem('data', userInput8);\n  document.querySelector('#target').innerHTML = userInput8;\n}", "target": 1}
+{"func": "function safe_encode_redirect() {\n  const safe = encodeURIComponent(userInput8);\n  window.location.href = 'https://safe.com?q=' + safe;\n}", "target": 0}
+{"func": "function safe_DOMPurify_log() {\n  const clean = DOMPurify.sanitize(userInput8);\n  document.body.innerHTML = clean;\n  console.log('Sanitized safely');\n}", "target": 0}
+{"func": "function vuln_eval_write() {\n  eval(userInput9);\n  document.write(userInput9);\n}", "target": 1}
+{"func": "function vuln_redirect_fetch() {\n  location.href = userInput9;\n  fetch(userInput9);\n}", "target": 1}
+{"func": "function vuln_storage_innerHTML() {\n  localStorage.setItem('data', userInput9);\n  document.querySelector('#target').innerHTML = userInput9;\n}", "target": 1}
+{"func": "function safe_encode_redirect() {\n  const safe = encodeURIComponent(userInput9);\n  window.location.href = 'https://safe.com?q=' + safe;\n}", "target": 0}
+{"func": "function safe_DOMPurify_log() {\n  const clean = DOMPurify.sanitize(userInput9);\n  document.body.innerHTML = clean;\n  console.log('Sanitized safely');\n}", "target": 0}
+{"func": "function vuln_eval_write() {\n  eval(userInput10);\n  document.write(userInput10);\n}", "target": 1}
+{"func": "function vuln_redirect_fetch() {\n  location.href = userInput10;\n  fetch(userInput10);\n}", "target": 1}
+{"func": "function vuln_storage_innerHTML() {\n  localStorage.setItem('data', userInput10);\n  document.querySelector('#target').innerHTML = userInput10;\n}", "target": 1}
+{"func": "function safe_encode_redirect() {\n  const safe = encodeURIComponent(userInput10);\n  window.location.href = 'https://safe.com?q=' + safe;\n}", "target": 0}
+{"func": "function safe_DOMPurify_log() {\n  const clean = DOMPurify.sanitize(userInput10);\n  document.body.innerHTML = clean;\n  console.log('Sanitized safely');\n}", "target": 0}
+{"func": "function vuln_eval_write() {\n  eval(userInput11);\n  document.write(userInput11);\n}", "target": 1}
+{"func": "function vuln_redirect_fetch() {\n  location.href = userInput11;\n  fetch(userInput11);\n}", "target": 1}
+{"func": "function vuln_storage_innerHTML() {\n  localStorage.setItem('data', userInput11);\n  document.querySelector('#target').innerHTML = userInput11;\n}", "target": 1}
+{"func": "function safe_encode_redirect() {\n  const safe = encodeURIComponent(userInput11);\n  window.location.href = 'https://safe.com?q=' + safe;\n}", "target": 0}
+{"func": "function safe_DOMPurify_log() {\n  const clean = DOMPurify.sanitize(userInput11);\n  document.body.innerHTML = clean;\n  console.log('Sanitized safely');\n}", "target": 0}
+{"func": "function vuln_eval_write() {\n  eval(userInput12);\n  document.write(userInput12);\n}", "target": 1}
+{"func": "function vuln_redirect_fetch() {\n  location.href = userInput12;\n  fetch(userInput12);\n}", "target": 1}
+{"func": "function vuln_storage_innerHTML() {\n  localStorage.setItem('data', userInput12);\n  document.querySelector('#target').innerHTML = userInput12;\n}", "target": 1}
+{"func": "function safe_encode_redirect() {\n  const safe = encodeURIComponent(userInput12);\n  window.location.href = 'https://safe.com?q=' + safe;\n}", "target": 0}
+{"func": "function safe_DOMPurify_log() {\n  const clean = DOMPurify.sanitize(userInput12);\n  document.body.innerHTML = clean;\n  console.log('Sanitized safely');\n}", "target": 0}
+{"func": "function vuln_eval_write() {\n  eval(userInput13);\n  document.write(userInput13);\n}", "target": 1}
+{"func": "function vuln_redirect_fetch() {\n  location.href = userInput13;\n  fetch(userInput13);\n}", "target": 1}
+{"func": "function vuln_storage_innerHTML() {\n  localStorage.setItem('data', userInput13);\n  document.querySelector('#target').innerHTML = userInput13;\n}", "target": 1}
+{"func": "function safe_encode_redirect() {\n  const safe = encodeURIComponent(userInput13);\n  window.location.href = 'https://safe.com?q=' + safe;\n}", "target": 0}
+{"func": "function safe_DOMPurify_log() {\n  const clean = DOMPurify.sanitize(userInput13);\n  document.body.innerHTML = clean;\n  console.log('Sanitized safely');\n}", "target": 0}
+{"func": "function vuln_eval_write() {\n  eval(userInput14);\n  document.write(userInput14);\n}", "target": 1}
+{"func": "function vuln_redirect_fetch() {\n  location.href = userInput14;\n  fetch(userInput14);\n}", "target": 1}
+{"func": "function vuln_storage_innerHTML() {\n  localStorage.setItem('data', userInput14);\n  document.querySelector('#target').innerHTML = userInput14;\n}", "target": 1}
+{"func": "function safe_encode_redirect() {\n  const safe = encodeURIComponent(userInput14);\n  window.location.href = 'https://safe.com?q=' + safe;\n}", "target": 0}
+{"func": "function safe_DOMPurify_log() {\n  const clean = DOMPurify.sanitize(userInput14);\n  document.body.innerHTML = clean;\n  console.log('Sanitized safely');\n}", "target": 0}
+{"func": "function vuln_eval_write() {\n  eval(userInput15);\n  document.write(userInput15);\n}", "target": 1}
+{"func": "function vuln_redirect_fetch() {\n  location.href = userInput15;\n  fetch(userInput15);\n}", "target": 1}
+{"func": "function vuln_storage_innerHTML() {\n  localStorage.setItem('data', userInput15);\n  document.querySelector('#target').innerHTML = userInput15;\n}", "target": 1}
+{"func": "function safe_encode_redirect() {\n  const safe = encodeURIComponent(userInput15);\n  window.location.href = 'https://safe.com?q=' + safe;\n}", "target": 0}
+{"func": "function safe_DOMPurify_log() {\n  const clean = DOMPurify.sanitize(userInput15);\n  document.body.innerHTML = clean;\n  console.log('Sanitized safely');\n}", "target": 0}
+{"func": "function vuln_eval_write() {\n  eval(userInput16);\n  document.write(userInput16);\n}", "target": 1}
+{"func": "function vuln_redirect_fetch() {\n  location.href = userInput16;\n  fetch(userInput16);\n}", "target": 1}
+{"func": "function vuln_storage_innerHTML() {\n  localStorage.setItem('data', userInput16);\n  document.querySelector('#target').innerHTML = userInput16;\n}", "target": 1}
+{"func": "function safe_encode_redirect() {\n  const safe = encodeURIComponent(userInput16);\n  window.location.href = 'https://safe.com?q=' + safe;\n}", "target": 0}
+{"func": "function safe_DOMPurify_log() {\n  const clean = DOMPurify.sanitize(userInput16);\n  document.body.innerHTML = clean;\n  console.log('Sanitized safely');\n}", "target": 0}
+{"func": "function vuln_eval_write() {\n  eval(userInput17);\n  document.write(userInput17);\n}", "target": 1}
+{"func": "function vuln_redirect_fetch() {\n  location.href = userInput17;\n  fetch(userInput17);\n}", "target": 1}
+{"func": "function vuln_storage_innerHTML() {\n  localStorage.setItem('data', userInput17);\n  document.querySelector('#target').innerHTML = userInput17;\n}", "target": 1}
+{"func": "function safe_encode_redirect() {\n  const safe = encodeURIComponent(userInput17);\n  window.location.href = 'https://safe.com?q=' + safe;\n}", "target": 0}
+{"func": "function safe_DOMPurify_log() {\n  const clean = DOMPurify.sanitize(userInput17);\n  document.body.innerHTML = clean;\n  console.log('Sanitized safely');\n}", "target": 0}
+{"func": "function vuln_eval_write() {\n  eval(userInput18);\n  document.write(userInput18);\n}", "target": 1}
+{"func": "function vuln_redirect_fetch() {\n  location.href = userInput18;\n  fetch(userInput18);\n}", "target": 1}
+{"func": "function vuln_storage_innerHTML() {\n  localStorage.setItem('data', userInput18);\n  document.querySelector('#target').innerHTML = userInput18;\n}", "target": 1}
+{"func": "function safe_encode_redirect() {\n  const safe = encodeURIComponent(userInput18);\n  window.location.href = 'https://safe.com?q=' + safe;\n}", "target": 0}
+{"func": "function safe_DOMPurify_log() {\n  const clean = DOMPurify.sanitize(userInput18);\n  document.body.innerHTML = clean;\n  console.log('Sanitized safely');\n}", "target": 0}
+{"func": "function vuln_eval_write() {\n  eval(userInput19);\n  document.write(userInput19);\n}", "target": 1}
+{"func": "function vuln_redirect_fetch() {\n  location.href = userInput19;\n  fetch(userInput19);\n}", "target": 1}
+{"func": "function vuln_storage_innerHTML() {\n  localStorage.setItem('data', userInput19);\n  document.querySelector('#target').innerHTML = userInput19;\n}", "target": 1}
+{"func": "function safe_encode_redirect() {\n  const safe = encodeURIComponent(userInput19);\n  window.location.href = 'https://safe.com?q=' + safe;\n}", "target": 0}
+{"func": "function safe_DOMPurify_log() {\n  const clean = DOMPurify.sanitize(userInput19);\n  document.body.innerHTML = clean;\n  console.log('Sanitized safely');\n}", "target": 0}
+{"func": "function vuln_eval_write() {\n  eval(userInput20);\n  document.write(userInput20);\n}", "target": 1}
+{"func": "function vuln_redirect_fetch() {\n  location.href = userInput20;\n  fetch(userInput20);\n}", "target": 1}
+{"func": "function vuln_storage_innerHTML() {\n  localStorage.setItem('data', userInput20);\n  document.querySelector('#target').innerHTML = userInput20;\n}", "target": 1}
+{"func": "function safe_encode_redirect() {\n  const safe = encodeURIComponent(userInput20);\n  window.location.href = 'https://safe.com?q=' + safe;\n}", "target": 0}
+{"func": "function safe_DOMPurify_log() {\n  const clean = DOMPurify.sanitize(userInput20);\n  document.body.innerHTML = clean;\n  console.log('Sanitized safely');\n}", "target": 0}
+{"func": "function vuln_eval_write() {\n  eval(userInput21);\n  document.write(userInput21);\n}", "target": 1}
+{"func": "function vuln_redirect_fetch() {\n  location.href = userInput21;\n  fetch(userInput21);\n}", "target": 1}
+{"func": "function vuln_storage_innerHTML() {\n  localStorage.setItem('data', userInput21);\n  document.querySelector('#target').innerHTML = userInput21;\n}", "target": 1}
+{"func": "function safe_encode_redirect() {\n  const safe = encodeURIComponent(userInput21);\n  window.location.href = 'https://safe.com?q=' + safe;\n}", "target": 0}
+{"func": "function safe_DOMPurify_log() {\n  const clean = DOMPurify.sanitize(userInput21);\n  document.body.innerHTML = clean;\n  console.log('Sanitized safely');\n}", "target": 0}
+{"func": "function vuln_eval_write() {\n  eval(userInput22);\n  document.write(userInput22);\n}", "target": 1}
+{"func": "function vuln_redirect_fetch() {\n  location.href = userInput22;\n  fetch(userInput22);\n}", "target": 1}
+{"func": "function vuln_storage_innerHTML() {\n  localStorage.setItem('data', userInput22);\n  document.querySelector('#target').innerHTML = userInput22;\n}", "target": 1}
+{"func": "function safe_encode_redirect() {\n  const safe = encodeURIComponent(userInput22);\n  window.location.href = 'https://safe.com?q=' + safe;\n}", "target": 0}
+{"func": "function safe_DOMPurify_log() {\n  const clean = DOMPurify.sanitize(userInput22);\n  document.body.innerHTML = clean;\n  console.log('Sanitized safely');\n}", "target": 0}
+{"func": "function vuln_eval_write() {\n  eval(userInput23);\n  document.write(userInput23);\n}", "target": 1}
+{"func": "function vuln_redirect_fetch() {\n  location.href = userInput23;\n  fetch(userInput23);\n}", "target": 1}
+{"func": "function vuln_storage_innerHTML() {\n  localStorage.setItem('data', userInput23);\n  document.querySelector('#target').innerHTML = userInput23;\n}", "target": 1}
+{"func": "function safe_encode_redirect() {\n  const safe = encodeURIComponent(userInput23);\n  window.location.href = 'https://safe.com?q=' + safe;\n}", "target": 0}
+{"func": "function safe_DOMPurify_log() {\n  const clean = DOMPurify.sanitize(userInput23);\n  document.body.innerHTML = clean;\n  console.log('Sanitized safely');\n}", "target": 0}
+{"func": "function vuln_eval_write() {\n  eval(userInput24);\n  document.write(userInput24);\n}", "target": 1}
+{"func": "function vuln_redirect_fetch() {\n  location.href = userInput24;\n  fetch(userInput24);\n}", "target": 1}
+{"func": "function vuln_storage_innerHTML() {\n  localStorage.setItem('data', userInput24);\n  document.querySelector('#target').innerHTML = userInput24;\n}", "target": 1}
+{"func": "function safe_encode_redirect() {\n  const safe = encodeURIComponent(userInput24);\n  window.location.href = 'https://safe.com?q=' + safe;\n}", "target": 0}
+{"func": "function safe_DOMPurify_log() {\n  const clean = DOMPurify.sanitize(userInput24);\n  document.body.innerHTML = clean;\n  console.log('Sanitized safely');\n}", "target": 0}
+{"func": "function vuln_eval_write() {\n  eval(userInput25);\n  document.write(userInput25);\n}", "target": 1}
+{"func": "function vuln_redirect_fetch() {\n  location.href = userInput25;\n  fetch(userInput25);\n}", "target": 1}
+{"func": "function vuln_storage_innerHTML() {\n  localStorage.setItem('data', userInput25);\n  document.querySelector('#target').innerHTML = userInput25;\n}", "target": 1}
+{"func": "function safe_encode_redirect() {\n  const safe = encodeURIComponent(userInput25);\n  window.location.href = 'https://safe.com?q=' + safe;\n}", "target": 0}
+{"func": "function safe_DOMPurify_log() {\n  const clean = DOMPurify.sanitize(userInput25);\n  document.body.innerHTML = clean;\n  console.log('Sanitized safely');\n}", "target": 0}
+{"func": "function vuln_eval_write() {\n  eval(userInput26);\n  document.write(userInput26);\n}", "target": 1}
+{"func": "function vuln_redirect_fetch() {\n  location.href = userInput26;\n  fetch(userInput26);\n}", "target": 1}
+{"func": "function vuln_storage_innerHTML() {\n  localStorage.setItem('data', userInput26);\n  document.querySelector('#target').innerHTML = userInput26;\n}", "target": 1}
+{"func": "function safe_encode_redirect() {\n  const safe = encodeURIComponent(userInput26);\n  window.location.href = 'https://safe.com?q=' + safe;\n}", "target": 0}
+{"func": "function safe_DOMPurify_log() {\n  const clean = DOMPurify.sanitize(userInput26);\n  document.body.innerHTML = clean;\n  console.log('Sanitized safely');\n}", "target": 0}
+{"func": "function vuln_eval_write() {\n  eval(userInput27);\n  document.write(userInput27);\n}", "target": 1}
+{"func": "function vuln_redirect_fetch() {\n  location.href = userInput27;\n  fetch(userInput27);\n}", "target": 1}
+{"func": "function vuln_storage_innerHTML() {\n  localStorage.setItem('data', userInput27);\n  document.querySelector('#target').innerHTML = userInput27;\n}", "target": 1}
+{"func": "function safe_encode_redirect() {\n  const safe = encodeURIComponent(userInput27);\n  window.location.href = 'https://safe.com?q=' + safe;\n}", "target": 0}
+{"func": "function safe_DOMPurify_log() {\n  const clean = DOMPurify.sanitize(userInput27);\n  document.body.innerHTML = clean;\n  console.log('Sanitized safely');\n}", "target": 0}
+{"func": "function vuln_eval_write() {\n  eval(userInput28);\n  document.write(userInput28);\n}", "target": 1}
+{"func": "function vuln_redirect_fetch() {\n  location.href = userInput28;\n  fetch(userInput28);\n}", "target": 1}
+{"func": "function vuln_storage_innerHTML() {\n  localStorage.setItem('data', userInput28);\n  document.querySelector('#target').innerHTML = userInput28;\n}", "target": 1}
+{"func": "function safe_encode_redirect() {\n  const safe = encodeURIComponent(userInput28);\n  window.location.href = 'https://safe.com?q=' + safe;\n}", "target": 0}
+{"func": "function safe_DOMPurify_log() {\n  const clean = DOMPurify.sanitize(userInput28);\n  document.body.innerHTML = clean;\n  console.log('Sanitized safely');\n}", "target": 0}
+{"func": "function vuln_eval_write() {\n  eval(userInput29);\n  document.write(userInput29);\n}", "target": 1}
+{"func": "function vuln_redirect_fetch() {\n  location.href = userInput29;\n  fetch(userInput29);\n}", "target": 1}
+{"func": "function vuln_storage_innerHTML() {\n  localStorage.setItem('data', userInput29);\n  document.querySelector('#target').innerHTML = userInput29;\n}", "target": 1}
+{"func": "function safe_encode_redirect() {\n  const safe = encodeURIComponent(userInput29);\n  window.location.href = 'https://safe.com?q=' + safe;\n}", "target": 0}
+{"func": "function safe_DOMPurify_log() {\n  const clean = DOMPurify.sanitize(userInput29);\n  document.body.innerHTML = clean;\n  console.log('Sanitized safely');\n}", "target": 0}
+{"func": "function vuln_eval_write() {\n  eval(userInput30);\n  document.write(userInput30);\n}", "target": 1}
+{"func": "function vuln_redirect_fetch() {\n  location.href = userInput30;\n  fetch(userInput30);\n}", "target": 1}
+{"func": "function vuln_storage_innerHTML() {\n  localStorage.setItem('data', userInput30);\n  document.querySelector('#target').innerHTML = userInput30;\n}", "target": 1}
+{"func": "function safe_encode_redirect() {\n  const safe = encodeURIComponent(userInput30);\n  window.location.href = 'https://safe.com?q=' + safe;\n}", "target": 0}
+{"func": "function safe_DOMPurify_log() {\n  const clean = DOMPurify.sanitize(userInput30);\n  document.body.innerHTML = clean;\n  console.log('Sanitized safely');\n}", "target": 0}
+{"func": "function vuln_eval_write() {\n  eval(userInput31);\n  document.write(userInput31);\n}", "target": 1}
+{"func": "function vuln_redirect_fetch() {\n  location.href = userInput31;\n  fetch(userInput31);\n}", "target": 1}
+{"func": "function vuln_storage_innerHTML() {\n  localStorage.setItem('data', userInput31);\n  document.querySelector('#target').innerHTML = userInput31;\n}", "target": 1}
+{"func": "function safe_encode_redirect() {\n  const safe = encodeURIComponent(userInput31);\n  window.location.href = 'https://safe.com?q=' + safe;\n}", "target": 0}
+{"func": "function safe_DOMPurify_log() {\n  const clean = DOMPurify.sanitize(userInput31);\n  document.body.innerHTML = clean;\n  console.log('Sanitized safely');\n}", "target": 0}
+{"func": "function vuln_eval_write() {\n  eval(userInput32);\n  document.write(userInput32);\n}", "target": 1}
+{"func": "function vuln_redirect_fetch() {\n  location.href = userInput32;\n  fetch(userInput32);\n}", "target": 1}
+{"func": "function vuln_storage_innerHTML() {\n  localStorage.setItem('data', userInput32);\n  document.querySelector('#target').innerHTML = userInput32;\n}", "target": 1}
+{"func": "function safe_encode_redirect() {\n  const safe = encodeURIComponent(userInput32);\n  window.location.href = 'https://safe.com?q=' + safe;\n}", "target": 0}
+{"func": "function safe_DOMPurify_log() {\n  const clean = DOMPurify.sanitize(userInput32);\n  document.body.innerHTML = clean;\n  console.log('Sanitized safely');\n}", "target": 0}
+{"func": "function vuln_eval_write() {\n  eval(userInput33);\n  document.write(userInput33);\n}", "target": 1}
+{"func": "function vuln_redirect_fetch() {\n  location.href = userInput33;\n  fetch(userInput33);\n}", "target": 1}
+{"func": "function vuln_storage_innerHTML() {\n  localStorage.setItem('data', userInput33);\n  document.querySelector('#target').innerHTML = userInput33;\n}", "target": 1}
+{"func": "function safe_encode_redirect() {\n  const safe = encodeURIComponent(userInput33);\n  window.location.href = 'https://safe.com?q=' + safe;\n}", "target": 0}
+{"func": "function safe_DOMPurify_log() {\n  const clean = DOMPurify.sanitize(userInput33);\n  document.body.innerHTML = clean;\n  console.log('Sanitized safely');\n}", "target": 0}
+{"func": "function vuln_eval_write() {\n  eval(userInput34);\n  document.write(userInput34);\n}", "target": 1}
+{"func": "function vuln_redirect_fetch() {\n  location.href = userInput34;\n  fetch(userInput34);\n}", "target": 1}
+{"func": "function vuln_storage_innerHTML() {\n  localStorage.setItem('data', userInput34);\n  document.querySelector('#target').innerHTML = userInput34;\n}", "target": 1}
+{"func": "function safe_encode_redirect() {\n  const safe = encodeURIComponent(userInput34);\n  window.location.href = 'https://safe.com?q=' + safe;\n}", "target": 0}
+{"func": "function safe_DOMPurify_log() {\n  const clean = DOMPurify.sanitize(userInput34);\n  document.body.innerHTML = clean;\n  console.log('Sanitized safely');\n}", "target": 0}
+{"func": "function vuln_eval_write() {\n  eval(userInput35);\n  document.write(userInput35);\n}", "target": 1}
+{"func": "function vuln_redirect_fetch() {\n  location.href = userInput35;\n  fetch(userInput35);\n}", "target": 1}
+{"func": "function vuln_storage_innerHTML() {\n  localStorage.setItem('data', userInput35);\n  document.querySelector('#target').innerHTML = userInput35;\n}", "target": 1}
+{"func": "function safe_encode_redirect() {\n  const safe = encodeURIComponent(userInput35);\n  window.location.href = 'https://safe.com?q=' + safe;\n}", "target": 0}
+{"func": "function safe_DOMPurify_log() {\n  const clean = DOMPurify.sanitize(userInput35);\n  document.body.innerHTML = clean;\n  console.log('Sanitized safely');\n}", "target": 0}
+{"func": "function vuln_eval_write() {\n  eval(userInput36);\n  document.write(userInput36);\n}", "target": 1}
+{"func": "function vuln_redirect_fetch() {\n  location.href = userInput36;\n  fetch(userInput36);\n}", "target": 1}
+{"func": "function vuln_storage_innerHTML() {\n  localStorage.setItem('data', userInput36);\n  document.querySelector('#target').innerHTML = userInput36;\n}", "target": 1}
+{"func": "function safe_encode_redirect() {\n  const safe = encodeURIComponent(userInput36);\n  window.location.href = 'https://safe.com?q=' + safe;\n}", "target": 0}
+{"func": "function safe_DOMPurify_log() {\n  const clean = DOMPurify.sanitize(userInput36);\n  document.body.innerHTML = clean;\n  console.log('Sanitized safely');\n}", "target": 0}
+{"func": "function vuln_eval_write() {\n  eval(userInput37);\n  document.write(userInput37);\n}", "target": 1}
+{"func": "function vuln_redirect_fetch() {\n  location.href = userInput37;\n  fetch(userInput37);\n}", "target": 1}
+{"func": "function vuln_storage_innerHTML() {\n  localStorage.setItem('data', userInput37);\n  document.querySelector('#target').innerHTML = userInput37;\n}", "target": 1}
+{"func": "function safe_encode_redirect() {\n  const safe = encodeURIComponent(userInput37);\n  window.location.href = 'https://safe.com?q=' + safe;\n}", "target": 0}
+{"func": "function safe_DOMPurify_log() {\n  const clean = DOMPurify.sanitize(userInput37);\n  document.body.innerHTML = clean;\n  console.log('Sanitized safely');\n}", "target": 0}
+{"func": "function vuln_eval_write() {\n  eval(userInput38);\n  document.write(userInput38);\n}", "target": 1}
+{"func": "function vuln_redirect_fetch() {\n  location.href = userInput38;\n  fetch(userInput38);\n}", "target": 1}
+{"func": "function vuln_storage_innerHTML() {\n  localStorage.setItem('data', userInput38);\n  document.querySelector('#target').innerHTML = userInput38;\n}", "target": 1}
+{"func": "function safe_encode_redirect() {\n  const safe = encodeURIComponent(userInput38);\n  window.location.href = 'https://safe.com?q=' + safe;\n}", "target": 0}
+{"func": "function safe_DOMPurify_log() {\n  const clean = DOMPurify.sanitize(userInput38);\n  document.body.innerHTML = clean;\n  console.log('Sanitized safely');\n}", "target": 0}
+{"func": "function vuln_eval_write() {\n  eval(userInput39);\n  document.write(userInput39);\n}", "target": 1}
+{"func": "function vuln_redirect_fetch() {\n  location.href = userInput39;\n  fetch(userInput39);\n}", "target": 1}
+{"func": "function vuln_storage_innerHTML() {\n  localStorage.setItem('data', userInput39);\n  document.querySelector('#target').innerHTML = userInput39;\n}", "target": 1}
+{"func": "function safe_encode_redirect() {\n  const safe = encodeURIComponent(userInput39);\n  window.location.href = 'https://safe.com?q=' + safe;\n}", "target": 0}
+{"func": "function safe_DOMPurify_log() {\n  const clean = DOMPurify.sanitize(userInput39);\n  document.body.innerHTML = clean;\n  console.log('Sanitized safely');\n}", "target": 0}

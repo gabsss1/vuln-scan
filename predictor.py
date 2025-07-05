@@ -6,7 +6,6 @@ class VulnerabilityPredictor:
         self.detector = GraphCodeBERTVulnDetector("checkpoints/")
 
     def extract_functions(self, code: str):
-        # Regex para detectar funciones C o JS
         pattern = r"(function\s+\w+\s*\([^)]*\)\s*\{(?:[^{}]|\{[^{}]*\})*\}|(?:void|int|char|float|double)\s+\w+\s*\([^)]*\)\s*\{(?:[^{}]|\{[^{}]*\})*\})"
         return list(re.finditer(pattern, code, re.DOTALL))
 
@@ -23,7 +22,6 @@ class VulnerabilityPredictor:
 
             vuln_lines = []
             if label == "Vulnerable":
-                # Detecta vulnerabilidades comunes en JS y C
                 patterns = [
                     'gets(', 'strcpy(', 'scanf(',          # C
                     'eval(', 'document.write', 'innerHTML',  # JS
