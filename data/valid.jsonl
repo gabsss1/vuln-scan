@@ -1,9 +1,75 @@
-{"func": "function vulnerable_val1() {\n  eval(userInput);\n}", "target": 1}
-{"func": "function vulnerable_val2() {\n  setInterval(userInput, 1000);\n}", "target": 1}
-{"func": "function vulnerable_val3() {\n  location.href = 'http://evil.com?q=' + userInput;\n}", "target": 1}
-{"func": "function vulnerable_val4() {\n  document.body.innerHTML = userInput;\n}", "target": 1}
-
-{"func": "function safe_val1() {\n  const safe = encodeURIComponent(userInput);\n  console.log(safe);\n}", "target": 0}
-{"func": "function safe_val2() {\n  const clean = DOMPurify.sanitize(userInput);\n  element.innerHTML = clean;\n}", "target": 0}
-{"func": "function safe_val3() {\n  const div = document.createElement('div');\n  div.textContent = userInput;\n  document.body.appendChild(div);\n}", "target": 0}
-{"func": "function safe_val4() {\n  const msg = 'Safe';\n  alert(msg);\n}", "target": 0}
+{"func": "function vuln_valid_0() { eval(userInput); document.write(userInput); }", "target": 1}
+{"func": "function vuln_valid_1() { eval(userInput); document.write(userInput); }", "target": 1}
+{"func": "function vuln_valid_2() { eval(userInput); document.write(userInput); }", "target": 1}
+{"func": "function vuln_valid_3() { eval(userInput); document.write(userInput); }", "target": 1}
+{"func": "function vuln_valid_4() { eval(userInput); document.write(userInput); }", "target": 1}
+{"func": "function vuln_valid_5() { eval(userInput); document.write(userInput); }", "target": 1}
+{"func": "function vuln_valid_6() { eval(userInput); document.write(userInput); }", "target": 1}
+{"func": "function vuln_valid_7() { eval(userInput); document.write(userInput); }", "target": 1}
+{"func": "function vuln_valid_8() { eval(userInput); document.write(userInput); }", "target": 1}
+{"func": "function vuln_valid_9() { eval(userInput); document.write(userInput); }", "target": 1}
+{"func": "function vuln_valid_10() { eval(userInput); document.write(userInput); }", "target": 1}
+{"func": "function vuln_valid_11() { eval(userInput); document.write(userInput); }", "target": 1}
+{"func": "function vuln_valid_12() { eval(userInput); document.write(userInput); }", "target": 1}
+{"func": "function vuln_valid_13() { eval(userInput); document.write(userInput); }", "target": 1}
+{"func": "function vuln_valid_14() { eval(userInput); document.write(userInput); }", "target": 1}
+{"func": "function vuln_valid_15() { eval(userInput); document.write(userInput); }", "target": 1}
+{"func": "function vuln_valid_16() { eval(userInput); document.write(userInput); }", "target": 1}
+{"func": "function vuln_valid_17() { eval(userInput); document.write(userInput); }", "target": 1}
+{"func": "function vuln_valid_18() { eval(userInput); document.write(userInput); }", "target": 1}
+{"func": "function vuln_valid_19() { eval(userInput); document.write(userInput); }", "target": 1}
+{"func": "function vuln_valid_20() { eval(userInput); document.write(userInput); }", "target": 1}
+{"func": "function vuln_valid_21() { eval(userInput); document.write(userInput); }", "target": 1}
+{"func": "function vuln_valid_22() { eval(userInput); document.write(userInput); }", "target": 1}
+{"func": "function vuln_valid_23() { eval(userInput); document.write(userInput); }", "target": 1}
+{"func": "function vuln_valid_24() { eval(userInput); document.write(userInput); }", "target": 1}
+{"func": "function vuln_valid_25() { eval(userInput); document.write(userInput); }", "target": 1}
+{"func": "function vuln_valid_26() { eval(userInput); document.write(userInput); }", "target": 1}
+{"func": "function vuln_valid_27() { eval(userInput); document.write(userInput); }", "target": 1}
+{"func": "function vuln_valid_28() { eval(userInput); document.write(userInput); }", "target": 1}
+{"func": "function vuln_valid_29() { eval(userInput); document.write(userInput); }", "target": 1}
+{"func": "function vuln_valid_30() { eval(userInput); document.write(userInput); }", "target": 1}
+{"func": "function vuln_valid_31() { eval(userInput); document.write(userInput); }", "target": 1}
+{"func": "function vuln_valid_32() { eval(userInput); document.write(userInput); }", "target": 1}
+{"func": "function vuln_valid_33() { eval(userInput); document.write(userInput); }", "target": 1}
+{"func": "function vuln_valid_34() { eval(userInput); document.write(userInput); }", "target": 1}
+{"func": "function vuln_valid_35() { eval(userInput); document.write(userInput); }", "target": 1}
+{"func": "function vuln_valid_36() { eval(userInput); document.write(userInput); }", "target": 1}
+{"func": "function vuln_valid_37() { eval(userInput); document.write(userInput); }", "target": 1}
+{"func": "function safe_valid_0() { const safe = encodeURIComponent(userInput); console.log(safe); }", "target": 0}
+{"func": "function safe_valid_1() { const safe = encodeURIComponent(userInput); console.log(safe); }", "target": 0}
+{"func": "function safe_valid_2() { const safe = encodeURIComponent(userInput); console.log(safe); }", "target": 0}
+{"func": "function safe_valid_3() { const safe = encodeURIComponent(userInput); console.log(safe); }", "target": 0}
+{"func": "function safe_valid_4() { const safe = encodeURIComponent(userInput); console.log(safe); }", "target": 0}
+{"func": "function safe_valid_5() { const safe = encodeURIComponent(userInput); console.log(safe); }", "target": 0}
+{"func": "function safe_valid_6() { const safe = encodeURIComponent(userInput); console.log(safe); }", "target": 0}
+{"func": "function safe_valid_7() { const safe = encodeURIComponent(userInput); console.log(safe); }", "target": 0}
+{"func": "function safe_valid_8() { const safe = encodeURIComponent(userInput); console.log(safe); }", "target": 0}
+{"func": "function safe_valid_9() { const safe = encodeURIComponent(userInput); console.log(safe); }", "target": 0}
+{"func": "function safe_valid_10() { const safe = encodeURIComponent(userInput); console.log(safe); }", "target": 0}
+{"func": "function safe_valid_11() { const safe = encodeURIComponent(userInput); console.log(safe); }", "target": 0}
+{"func": "function safe_valid_12() { const safe = encodeURIComponent(userInput); console.log(safe); }", "target": 0}
+{"func": "function safe_valid_13() { const safe = encodeURIComponent(userInput); console.log(safe); }", "target": 0}
+{"func": "function safe_valid_14() { const safe = encodeURIComponent(userInput); console.log(safe); }", "target": 0}
+{"func": "function safe_valid_15() { const safe = encodeURIComponent(userInput); console.log(safe); }", "target": 0}
+{"func": "function safe_valid_16() { const safe = encodeURIComponent(userInput); console.log(safe); }", "target": 0}
+{"func": "function safe_valid_17() { const safe = encodeURIComponent(userInput); console.log(safe); }", "target": 0}
+{"func": "function safe_valid_18() { const safe = encodeURIComponent(userInput); console.log(safe); }", "target": 0}
+{"func": "function safe_valid_19() { const safe = encodeURIComponent(userInput); console.log(safe); }", "target": 0}
+{"func": "function safe_valid_20() { const safe = encodeURIComponent(userInput); console.log(safe); }", "target": 0}
+{"func": "function safe_valid_21() { const safe = encodeURIComponent(userInput); console.log(safe); }", "target": 0}
+{"func": "function safe_valid_22() { const safe = encodeURIComponent(userInput); console.log(safe); }", "target": 0}
+{"func": "function safe_valid_23() { const safe = encodeURIComponent(userInput); console.log(safe); }", "target": 0}
+{"func": "function safe_valid_24() { const safe = encodeURIComponent(userInput); console.log(safe); }", "target": 0}
+{"func": "function safe_valid_25() { const safe = encodeURIComponent(userInput); console.log(safe); }", "target": 0}
+{"func": "function safe_valid_26() { const safe = encodeURIComponent(userInput); console.log(safe); }", "target": 0}
+{"func": "function safe_valid_27() { const safe = encodeURIComponent(userInput); console.log(safe); }", "target": 0}
+{"func": "function safe_valid_28() { const safe = encodeURIComponent(userInput); console.log(safe); }", "target": 0}
+{"func": "function safe_valid_29() { const safe = encodeURIComponent(userInput); console.log(safe); }", "target": 0}
+{"func": "function safe_valid_30() { const safe = encodeURIComponent(userInput); console.log(safe); }", "target": 0}
+{"func": "function safe_valid_31() { const safe = encodeURIComponent(userInput); console.log(safe); }", "target": 0}
+{"func": "function safe_valid_32() { const safe = encodeURIComponent(userInput); console.log(safe); }", "target": 0}
+{"func": "function safe_valid_33() { const safe = encodeURIComponent(userInput); console.log(safe); }", "target": 0}
+{"func": "function safe_valid_34() { const safe = encodeURIComponent(userInput); console.log(safe); }", "target": 0}
+{"func": "function safe_valid_35() { const safe = encodeURIComponent(userInput); console.log(safe); }", "target": 0}
+{"func": "function safe_valid_36() { const safe = encodeURIComponent(userInput); console.log(safe); }", "target": 0}

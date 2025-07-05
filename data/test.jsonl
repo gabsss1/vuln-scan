@@ -1,9 +1,75 @@
-{"func": "function complexVuln1() {\n  const f = new Function(userInput);\n  f();\n  document.write(userInput);\n}", "target": 1}
-{"func": "function redirectedVuln() {\n  location.href = 'https://evil.com?q=' + userInput;\n  fetch(userInput);\n}", "target": 1}
-{"func": "function storageVuln() {\n  localStorage.setItem('maliciousKey', userInput);\n  document.querySelector('#content').innerHTML = userInput;\n}", "target": 1}
-{"func": "function hybridVuln() {\n  const html = '<div>' + userInput + '</div>';\n  document.body.innerHTML = html;\n  eval(userInput);\n}", "target": 1}
-
-{"func": "function safeSanitizedCombination() {\n  const clean = DOMPurify.sanitize(userInput);\n  document.body.innerHTML = clean;\n  console.log(\"Safe output\");\n}", "target": 0}
-{"func": "function safeEncodedRedirect() {\n  const safe = encodeURIComponent(userInput);\n  window.location.href = 'https://safe.com?q=' + safe;\n}", "target": 0}
-{"func": "function complexSafeHandler() {\n  const div = document.createElement('div');\n  div.textContent = userInput;\n  document.body.appendChild(div);\n  const encoded = encodeURIComponent(userInput);\n  console.log(encoded);\n}", "target": 0}
-{"func": "function largeSafeLoopFunction() {\n  let output = '';\n  for (let i = 0; i < 10; i++) {\n    output += `Safe_${i}_` + encodeURIComponent(userInput);\n  }\n  console.log(output);\n}", "target": 0}
+{"func": "function vuln_test_0() { setTimeout(userInput, 1000); window.open(userInput); }", "target": 1}
+{"func": "function vuln_test_1() { setTimeout(userInput, 1000); window.open(userInput); }", "target": 1}
+{"func": "function vuln_test_2() { setTimeout(userInput, 1000); window.open(userInput); }", "target": 1}
+{"func": "function vuln_test_3() { setTimeout(userInput, 1000); window.open(userInput); }", "target": 1}
+{"func": "function vuln_test_4() { setTimeout(userInput, 1000); window.open(userInput); }", "target": 1}
+{"func": "function vuln_test_5() { setTimeout(userInput, 1000); window.open(userInput); }", "target": 1}
+{"func": "function vuln_test_6() { setTimeout(userInput, 1000); window.open(userInput); }", "target": 1}
+{"func": "function vuln_test_7() { setTimeout(userInput, 1000); window.open(userInput); }", "target": 1}
+{"func": "function vuln_test_8() { setTimeout(userInput, 1000); window.open(userInput); }", "target": 1}
+{"func": "function vuln_test_9() { setTimeout(userInput, 1000); window.open(userInput); }", "target": 1}
+{"func": "function vuln_test_10() { setTimeout(userInput, 1000); window.open(userInput); }", "target": 1}
+{"func": "function vuln_test_11() { setTimeout(userInput, 1000); window.open(userInput); }", "target": 1}
+{"func": "function vuln_test_12() { setTimeout(userInput, 1000); window.open(userInput); }", "target": 1}
+{"func": "function vuln_test_13() { setTimeout(userInput, 1000); window.open(userInput); }", "target": 1}
+{"func": "function vuln_test_14() { setTimeout(userInput, 1000); window.open(userInput); }", "target": 1}
+{"func": "function vuln_test_15() { setTimeout(userInput, 1000); window.open(userInput); }", "target": 1}
+{"func": "function vuln_test_16() { setTimeout(userInput, 1000); window.open(userInput); }", "target": 1}
+{"func": "function vuln_test_17() { setTimeout(userInput, 1000); window.open(userInput); }", "target": 1}
+{"func": "function vuln_test_18() { setTimeout(userInput, 1000); window.open(userInput); }", "target": 1}
+{"func": "function vuln_test_19() { setTimeout(userInput, 1000); window.open(userInput); }", "target": 1}
+{"func": "function vuln_test_20() { setTimeout(userInput, 1000); window.open(userInput); }", "target": 1}
+{"func": "function vuln_test_21() { setTimeout(userInput, 1000); window.open(userInput); }", "target": 1}
+{"func": "function vuln_test_22() { setTimeout(userInput, 1000); window.open(userInput); }", "target": 1}
+{"func": "function vuln_test_23() { setTimeout(userInput, 1000); window.open(userInput); }", "target": 1}
+{"func": "function vuln_test_24() { setTimeout(userInput, 1000); window.open(userInput); }", "target": 1}
+{"func": "function vuln_test_25() { setTimeout(userInput, 1000); window.open(userInput); }", "target": 1}
+{"func": "function vuln_test_26() { setTimeout(userInput, 1000); window.open(userInput); }", "target": 1}
+{"func": "function vuln_test_27() { setTimeout(userInput, 1000); window.open(userInput); }", "target": 1}
+{"func": "function vuln_test_28() { setTimeout(userInput, 1000); window.open(userInput); }", "target": 1}
+{"func": "function vuln_test_29() { setTimeout(userInput, 1000); window.open(userInput); }", "target": 1}
+{"func": "function vuln_test_30() { setTimeout(userInput, 1000); window.open(userInput); }", "target": 1}
+{"func": "function vuln_test_31() { setTimeout(userInput, 1000); window.open(userInput); }", "target": 1}
+{"func": "function vuln_test_32() { setTimeout(userInput, 1000); window.open(userInput); }", "target": 1}
+{"func": "function vuln_test_33() { setTimeout(userInput, 1000); window.open(userInput); }", "target": 1}
+{"func": "function vuln_test_34() { setTimeout(userInput, 1000); window.open(userInput); }", "target": 1}
+{"func": "function vuln_test_35() { setTimeout(userInput, 1000); window.open(userInput); }", "target": 1}
+{"func": "function vuln_test_36() { setTimeout(userInput, 1000); window.open(userInput); }", "target": 1}
+{"func": "function safe_test_0() { const sanitized = DOMPurify.sanitize(userInput); document.body.innerHTML = sanitized; }", "target": 0}
+{"func": "function safe_test_1() { const sanitized = DOMPurify.sanitize(userInput); document.body.innerHTML = sanitized; }", "target": 0}
+{"func": "function safe_test_2() { const sanitized = DOMPurify.sanitize(userInput); document.body.innerHTML = sanitized; }", "target": 0}
+{"func": "function safe_test_3() { const sanitized = DOMPurify.sanitize(userInput); document.body.innerHTML = sanitized; }", "target": 0}
+{"func": "function safe_test_4() { const sanitized = DOMPurify.sanitize(userInput); document.body.innerHTML = sanitized; }", "target": 0}
+{"func": "function safe_test_5() { const sanitized = DOMPurify.sanitize(userInput); document.body.innerHTML = sanitized; }", "target": 0}
+{"func": "function safe_test_6() { const sanitized = DOMPurify.sanitize(userInput); document.body.innerHTML = sanitized; }", "target": 0}
+{"func": "function safe_test_7() { const sanitized = DOMPurify.sanitize(userInput); document.body.innerHTML = sanitized; }", "target": 0}
+{"func": "function safe_test_8() { const sanitized = DOMPurify.sanitize(userInput); document.body.innerHTML = sanitized; }", "target": 0}
+{"func": "function safe_test_9() { const sanitized = DOMPurify.sanitize(userInput); document.body.innerHTML = sanitized; }", "target": 0}
+{"func": "function safe_test_10() { const sanitized = DOMPurify.sanitize(userInput); document.body.innerHTML = sanitized; }", "target": 0}
+{"func": "function safe_test_11() { const sanitized = DOMPurify.sanitize(userInput); document.body.innerHTML = sanitized; }", "target": 0}
+{"func": "function safe_test_12() { const sanitized = DOMPurify.sanitize(userInput); document.body.innerHTML = sanitized; }", "target": 0}
+{"func": "function safe_test_13() { const sanitized = DOMPurify.sanitize(userInput); document.body.innerHTML = sanitized; }", "target": 0}
+{"func": "function safe_test_14() { const sanitized = DOMPurify.sanitize(userInput); document.body.innerHTML = sanitized; }", "target": 0}
+{"func": "function safe_test_15() { const sanitized = DOMPurify.sanitize(userInput); document.body.innerHTML = sanitized; }", "target": 0}
+{"func": "function safe_test_16() { const sanitized = DOMPurify.sanitize(userInput); document.body.innerHTML = sanitized; }", "target": 0}
+{"func": "function safe_test_17() { const sanitized = DOMPurify.sanitize(userInput); document.body.innerHTML = sanitized; }", "target": 0}
+{"func": "function safe_test_18() { const sanitized = DOMPurify.sanitize(userInput); document.body.innerHTML = sanitized; }", "target": 0}
+{"func": "function safe_test_19() { const sanitized = DOMPurify.sanitize(userInput); document.body.innerHTML = sanitized; }", "target": 0}
+{"func": "function safe_test_20() { const sanitized = DOMPurify.sanitize(userInput); document.body.innerHTML = sanitized; }", "target": 0}
+{"func": "function safe_test_21() { const sanitized = DOMPurify.sanitize(userInput); document.body.innerHTML = sanitized; }", "target": 0}
+{"func": "function safe_test_22() { const sanitized = DOMPurify.sanitize(userInput); document.body.innerHTML = sanitized; }", "target": 0}
+{"func": "function safe_test_23() { const sanitized = DOMPurify.sanitize(userInput); document.body.innerHTML = sanitized; }", "target": 0}
+{"func": "function safe_test_24() { const sanitized = DOMPurify.sanitize(userInput); document.body.innerHTML = sanitized; }", "target": 0}
+{"func": "function safe_test_25() { const sanitized = DOMPurify.sanitize(userInput); document.body.innerHTML = sanitized; }", "target": 0}
+{"func": "function safe_test_26() { const sanitized = DOMPurify.sanitize(userInput); document.body.innerHTML = sanitized; }", "target": 0}
+{"func": "function safe_test_27() { const sanitized = DOMPurify.sanitize(userInput); document.body.innerHTML = sanitized; }", "target": 0}
+{"func": "function safe_test_28() { const sanitized = DOMPurify.sanitize(userInput); document.body.innerHTML = sanitized; }", "target": 0}
+{"func": "function safe_test_29() { const sanitized = DOMPurify.sanitize(userInput); document.body.innerHTML = sanitized; }", "target": 0}
+{"func": "function safe_test_30() { const sanitized = DOMPurify.sanitize(userInput); document.body.innerHTML = sanitized; }", "target": 0}
+{"func": "function safe_test_31() { const sanitized = DOMPurify.sanitize(userInput); document.body.innerHTML = sanitized; }", "target": 0}
+{"func": "function safe_test_32() { const sanitized = DOMPurify.sanitize(userInput); document.body.innerHTML = sanitized; }", "target": 0}
+{"func": "function safe_test_33() { const sanitized = DOMPurify.sanitize(userInput); document.body.innerHTML = sanitized; }", "target": 0}
+{"func": "function safe_test_34() { const sanitized = DOMPurify.sanitize(userInput); document.body.innerHTML = sanitized; }", "target": 0}
+{"func": "function safe_test_35() { const sanitized = DOMPurify.sanitize(userInput); document.body.innerHTML = sanitized; }", "target": 0}
+{"func": "function safe_test_36() { const sanitized = DOMPurify.sanitize(userInput); document.body.innerHTML = sanitized; }", "target": 0}
+{"func": "function safe_test_37() { const sanitized = DOMPurify.sanitize(userInput); document.body.innerHTML = sanitized; }", "target": 0}
