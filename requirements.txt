@@ -1,5 +1,12 @@
 transformers==4.40.1
-datasets
-torch
-scikit-learn
-accelerate
+datasets>=2.0.0
+torch>=2.0.0
+scikit-learn>=1.0.0
+accelerate>=0.21.0
+
+# Para la API
+fastapi>=0.110.0
+uvicorn[standard]>=0.27.0
+
+# Seguridad de dependencias opcionalmente
+python-multipart>=0.0.6  # para subir archivos en FastAPI
